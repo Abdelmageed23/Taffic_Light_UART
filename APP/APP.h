@@ -12,6 +12,8 @@
 #define 	YELLOW	LED1
 #define 	RED		LED2
 
+#define 	IDINTICAL	0
+
 void APP_Init();
 void APP_Run();
 #endif /* APP_APP_H_ */

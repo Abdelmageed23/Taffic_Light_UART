@@ -23,52 +23,45 @@ void APP_Init()
 
 void APP_Run()
 {
-			/* Initializing Variables*/
-			uint8_t Str[100];
-			uint8_t Start_string[]="START";
-			uint8_t Wait_string[]="WAIT";
-			uint8_t Stop_string[]="STOP";
-			uint8_t AT_string[]="AT";
+			/* Initializing Variable To store The Command*/
+			uint8_t local_TempStr[100];
 
 				/*Asking for the Command*/
 				UART_SendString("Enter The Command: ");
 				/*Getting the Command and  confirm it*/
-		    	UART_ReceiveString(Str);
-		    	UART_SendString(Str);
+		    	UART_ReceiveString(local_TempStr);
+		    	UART_SendString(local_TempStr);
 		    	UART_SendString("\r\n");
 
 		    	/* Check if the command match the condtions*/
-		    	if(strcmp(Str,Start_string)==0)
+		    	if(strcmp(local_TempStr,"START")==IDINTICAL)
 		    	{
-		    		LED_ON(LED0);
-		    		LED_OFF(LED1);
-		    		LED_OFF(LED2);
+		    		LED_ON(GREEN);
+		    		LED_OFF(YELLOW);
+		    		LED_OFF(RED);
 		    		UART_SendString("Green LED is on \r\n");
 		    	}
-		    	else if(strcmp(Str,Wait_string)==0)
+		    	else if(strcmp(local_TempStr,"WAIT")==IDINTICAL)
 		    	{
-		    		LED_OFF(LED0);
-		    		LED_ON(LED1);
-					LED_OFF(LED2);
+		    		LED_OFF(GREEN);
+		    		LED_ON(YELLOW);
+					LED_OFF(RED);
 					UART_SendString("Yellow LED is on\r\n");
 		    	}
-		    	else if(strcmp(Str,Stop_string)==0)
+		    	else if(strcmp(local_TempStr,"STOP")==IDINTICAL)
 		    	{
-		    		LED_OFF(LED0);
-		    		LED_OFF(LED1);
-					LED_ON(LED2);
+		    		LED_OFF(GREEN);
+		    		LED_OFF(YELLOW);
+					LED_ON(RED);
 					UART_SendString("Red LED is on \r\n");
 		    	}
-		    	else if(strcmp(Str,AT_string)==0)
+		    	else if(strcmp(local_TempStr,"AT")==IDINTICAL)
 		    	{
-		    		LED_OFF(LED0);
-					LED_OFF(LED1);
-					LED_ON(LED2);
 					UART_SendString("OK \r\n");
 		    	}
 		    	else
 		    	{
-		    		UART_SendString(Str);
+		    		UART_SendString(local_TempStr);
 		    		UART_SendString("\r\n");
 		    	}
 
