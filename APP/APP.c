@@ -24,7 +24,7 @@ void APP_Init()
 void APP_Run()
 {
 			/* Initializing Variable To store The Command*/
-			uint8_t local_TempStr[100];
+			uint8_t local_TempStr[MAX_SIZE];
 
 				/*Asking for the Command*/
 				UART_SendString("Enter The Command: ");

@@ -13,6 +13,7 @@
 #define 	RED		LED2
 
 #define 	IDINTICAL	0
+#define 	MAX_SIZE	100
 
 void APP_Init();
 void APP_Run();
