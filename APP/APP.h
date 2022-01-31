@@ -12,9 +12,13 @@
 #define 	YELLOW	LED1
 #define 	RED		LED2
 
-#define 	IDINTICAL	0
+#define 	NO_CONFLICT	0
 #define 	MAX_SIZE	100
 
+
 void APP_Init();
+
 void APP_Run();
+
+
 #endif /* APP_APP_H_ */
